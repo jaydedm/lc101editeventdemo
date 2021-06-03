@@ -4,6 +4,7 @@ public class Event {
 
     private int id;
     private static int nextId = 1;
+    static final double pi = 3.14;
 
     private String name;
     private String description;

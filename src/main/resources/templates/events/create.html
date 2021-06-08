@@ -9,12 +9,57 @@
     <h1>Create Event</h1>
     <form method="post" action="/events/create">
         <div class="form-group">
-            <label>Name
-        <input type="text" name="name" class="form-control"/>
+            <label>
+                Name
+                <input th:field="${event.name}" class="form-control"/>
             </label>
+            <p class="error" th:errors="${event.name}"></p>
+        </div>
+        <div class="form-group">
             <label>
                 Description
-                <input type="text" name="description"  class="form-control">
+                <input th:field="${event.description}" class="form-control">
+            </label>
+            <p class="error" th:errors="${event.description}"></p>
+        </div>
+        <div class="form-group">
+            <label>
+                Location
+                <input th:field="${event.location}"  class="form-control">
+            </label>
+            <p class="error" th:errors="${event.location}"></p>
+        </div>
+        <div class="form-group">
+            <label>
+                Registration Required?
+                <input type="checkbox" th:field="${event.registrationRequired}" class="form-control">
+            </label>
+            <p class="error" th:errors="${event.registrationRequired}"></p>
+        </div>
+        <div class="form-group">
+            <label>
+                Number of Attendees
+                <input type="number" th:field="${event.numberOfAttendees}" class="form-control">
+            </label>
+            <p class="error" th:errors="${event.numberOfAttendees}"></p>
+        </div>
+        <div class="form-group">
+            <label>
+                Email
+                <input th:field="${event.contactEmail}"  class="form-control">
+            </label>
+            <p class="error" th:errors="${event.contactEmail}"></p>
+        </div>
+        <div class="form-group">
+            <label>Type
+                <select th:field="${event.type}">
+                    <option
+                            th:each="type : ${types}"
+                            th:value="${type}"
+                            th:text="${type.displayName}"
+                    >
+                    </option>
+                </select>
             </label>
         </div>
         <div class="form-group">
